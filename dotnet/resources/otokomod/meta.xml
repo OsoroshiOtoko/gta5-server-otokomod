@@ -1,0 +1,5 @@
+<meta>
+	<info name="Otokomod" description="main mod" />
+
+	<script src="otokomod.dll" />
+</meta>

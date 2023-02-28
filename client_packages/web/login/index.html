@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login and Registration Form</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+	<span id="alert"><i>fgd</i></span>
+    <div class="form-box login">
+      <form id="login-form">
+        <h2>Login</h2>
+        <div class="input-box">
+          <label for="email">Email</label>
+          <input class="email" type="email" id="logEmail" name="email" placeholder="Enter your email">
+        </div>
+        <div class="input-box">
+          <label for="password">Password</label>
+          <input class="password" type="password" id="logPassword" name="password" placeholder="Enter your password">
+        </div>
+        <button class="submit-button" type="submit" id="logBtn">Login</button>
+        <p>Don't have an account? <a href="#" class="register-link">Register</a></p>
+	</form>
+    </div>
+
+	<div class="form-box register">
+		<form id="register-form">
+			<h2>Register</h2>
+			<div class="input-box">
+			  <label for="first-name">First Name</label>
+			  <input type="text" id="first-name" name="first-name" placeholder="Enter your first name">
+			</div>
+			<div class="input-box">
+			  <label for="last-name">Last Name</label>
+			  <input type="text" id="last-name" name="last-name" placeholder="Enter your last name">
+			</div>
+			<div class="input-box">
+			  <label for="email">Email</label>
+			  <input class="email" type="email" id="regEmail" name="email" placeholder="Enter your email">
+			</div>
+			<div class="input-box">
+			  <label for="password">Password</label>
+			  <input class="password" type="password" id="regPassword" name="password" placeholder="Enter your password">
+			</div>
+			<button class="submit-button" type="submit" id="regBtn">Register</button>
+			<p>Already have an account? <a href="#" class="login-link">Login</a></p>
+		  </form>
+	</div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

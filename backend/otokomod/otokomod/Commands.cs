@@ -26,7 +26,7 @@ namespace otokomod
             NAPI.ClientEvent.TriggerClientEvent(target, "PlayerFreeze", freezestatus);
         }
 
-        [Command("login", "/login [password]")]
+        /*[Command("login", "/login [password]")]
         private void cmd_login(Player player, string password)
         {
             if (Accounts.IsPlayerLoggedIn(player))
@@ -47,7 +47,7 @@ namespace otokomod
 
             Accounts account = new Accounts(player.Name, player);
             account.Login(player, false);
-            NAPI.ClientEvent.TriggerClientEvent(player, "PlayerFreeze", false);
-        }
+            NAPI.ClientEvent.TriggerClientEvent(player, "PlayerFreeze", false); 
+        } */
     }
 }

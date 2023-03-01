@@ -11,7 +11,7 @@ namespace otokomod
             DB.InitConnection();
         }
 
-        [ServerEvent(Event.PlayerConnected)]
+        /*[ServerEvent(Event.PlayerConnected)]
         private void OnPlayerConnected(Player player)
         {
             player.SendChatMessage("Hello " + player.Name);
@@ -23,7 +23,7 @@ namespace otokomod
             {
                 player.SendChatMessage("Use the command to register /register");
             }
-        }
+        }*/
 
         [ServerEvent(Event.PlayerSpawn)]
         private void OnPlayerSpawn(Player player)

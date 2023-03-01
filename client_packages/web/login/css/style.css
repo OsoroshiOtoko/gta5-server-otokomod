@@ -5,8 +5,11 @@
 }
 
 body {
+  overflow: hidden;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: #000;
+  background-image: url('../img/image.png');
+  background-size: cover;
   font-family: sans-serif;
   display: flex;
   align-items: center;
@@ -14,12 +17,13 @@ body {
 }
 
 .wrapper {
-  background-color: rgba(255, 255, 255, 0.856);
+  background-color: rgba(255, 255, 255, 0.329);
+  backdrop-filter: blur(3px);
   position: relative;
-  width: 1300px;
-  height: 700px;
+  width: 700px;
+  height: 600px;
   border-radius: 10px;
-  box-shadow: 0 0 40px rgba(0, 8, 29, 0.9);
+  box-shadow: 0 0 16px rgba(0, 8, 29, 0.9);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,11 +33,11 @@ body {
 .wrapper #alert {
   color: #FF0000;
   font-size: 14px;
-  /*display: none;*/
+  display: none;
 }
 
 .wrapper .form-box {
-  width: 50%;
+  width: 70%;
   /*padding: 400px;*/
   
 }
@@ -91,7 +95,7 @@ body {
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #0B2545;
+  background-color: #0b2545;
   color: #fff;
   font-size: 20px;
   font-weight: 500;

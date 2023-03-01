@@ -9,19 +9,22 @@ namespace otokomod
     {
         private const string _accountKey = "Player_Data";
         public int _id;
-        public string _name;
+        public string _firstName;
+        public string _lastName;
         public long _cash;
         public Player _player;
 
         public Accounts()
         {
-            this._name = "";
+            this._firstName = "";
+            this._lastName = "";
             this._cash = 1000;
         }
 
-        public Accounts(string name, Player player, long cash = 1000)
+        public Accounts(string firstName, string lastName, Player player, long cash = 1000)
         {
-            this._name = name;
+            this._firstName = firstName;
+            this._lastName = lastName;
             this._player = player;
             this._cash = cash;
         }
@@ -32,9 +35,9 @@ namespace otokomod
             return false;
         }
 
-        public void Register(string name, string password)
+        public void Register(string firstName, string lastName, string email, string password)
         {
-            DB.NewAccountRegister(this, password);
+            DB.NewAccountRegister(this, firstName, lastName, email, password);
             Login(_player, true);
         }
           

@@ -46,11 +46,11 @@ namespace otokomod
             }
         }
 
-        public static bool IsAccountExist(string name)
+        public static bool IsAccountExist(string nickName)
         {
             MySqlCommand command = _connection.CreateCommand();
-            command.CommandText = "SELECT * FROM players_accounts WHERE name=@name LIMIT 1";
-            command.Parameters.AddWithValue("@name", name);
+            command.CommandText = "SELECT * FROM players_accounts WHERE nickName=@nickName LIMIT 1";
+            command.Parameters.AddWithValue("@nickName", nickName);
 
             using (MySqlDataReader reader = command.ExecuteReader())
             {
@@ -62,7 +62,7 @@ namespace otokomod
             }
         }
 
-        public static void NewAccountRegister(Accounts account, string password) 
+        public static void NewAccountRegister(Accounts account, string firstName, string lastName, string email, string password) 
         {
             string saltPw = BCrypt.HashPassword(password, BCrypt.GenerateSalt());
 
@@ -70,12 +70,15 @@ namespace otokomod
             {
                 MySqlCommand command = _connection.CreateCommand();
 
-                command.CommandText = "INSERT INTO players_accounts (pass, name, cash) VALUES (@pass, @name, @cash)";
+                command.CommandText = "INSERT INTO players_accounts (pass, nickName, cash, email, firstName, lastName) VALUES (@pass, @nickName, @cash, @email, @firstName, @lastName)";
                 command.Parameters.AddWithValue("@pass", saltPw);
-                command.Parameters.AddWithValue("@name", account._name);
+                command.Parameters.AddWithValue("@nickName", account._player.Name);
                 command.Parameters.AddWithValue("@cash", account._cash);
+                command.Parameters.AddWithValue("@email", email);
+                command.Parameters.AddWithValue("@firstName", firstName);
+                command.Parameters.AddWithValue("@lastName", lastName);
 
-                command.ExecuteReader();
+                command.ExecuteNonQuery();
 
                 account._id = (int)command.LastInsertedId;
             }
@@ -89,8 +92,8 @@ namespace otokomod
         {
             MySqlCommand command = _connection.CreateCommand();
 
-            command.CommandText = "SELECT * FROM players_accounts WHERE name=@name LIMIT 1";
-            command.Parameters.AddWithValue("@name", account._name);
+            command.CommandText = "SELECT * FROM players_accounts WHERE nickName=@nickName LIMIT 1";
+            command.Parameters.AddWithValue("@nickName", account._player.Name);
 
             using (MySqlDataReader reader = command.ExecuteReader())
             {
@@ -113,13 +116,13 @@ namespace otokomod
             command.Parameters.AddWithValue("@id", account._id);
         }
 
-        public static bool IsValidPassword(string name, string inputPw) 
+        public static bool IsValidPassword(string nickName, string inputPw) 
         {
             string tempPass = " ";
 
             MySqlCommand command = _connection.CreateCommand();
-            command.CommandText = "SELECT pass FROM players_accounts WHERE name=@name LIMIT 1";
-            command.Parameters.AddWithValue("@name", name);
+            command.CommandText = "SELECT pass FROM players_accounts WHERE nickName=@nickName LIMIT 1";
+            command.Parameters.AddWithValue("@nickName", nickName);
 
             using (MySqlDataReader reader = command.ExecuteReader())
             {

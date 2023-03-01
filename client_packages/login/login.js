@@ -12,3 +12,5 @@ mp.events.add("authRegister", (firstName, lastName, email, password) =>
 {
     mp.events.callRemote('authOnRegister', firstName, lastName, email, password);
 });
+
+/*test*/
